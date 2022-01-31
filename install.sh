@@ -225,7 +225,7 @@ dns_check(){
     read -r FQDN
 
     output "Resolving DNS..."
-    SERVER_IP=$(dig +short myip.opendns.com @resolver1.opendns.com -4)
+    SERVER_IP=$(dig +short ${FQDN})
     DOMAIN_RECORD=$(dig +short ${FQDN})
     if [ "${SERVER_IP}" != "${DOMAIN_RECORD}" ]; then
         output ""
